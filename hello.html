@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<title>Подарковыбиралка</title>
+	</head>
+	<body>
+		<h1>Уже зареген? Тада вводи логин и пароль:</h1>
+		<form method="post" action="check_login_and_password.php">
+			<p>Логин:   <br /><input type="text"      name="user_login"    required pattern="^[A-Za-z]+$"/></p>
+			<p>Пароль:  <br /><input type="password"  name="user_password" required/></p>
+			<p><input type="submit" value="Да впусти уже"       ></p>
+		</form>
+		<h1>Еще нет? Тогда регистрация ждет тебя:</h1>
+			<form method="post" action="register_form.php">
+				<p><input type="submit" value="Давайте уже регистрацию!"/></p>
+			</form>
+	</body>
+</html>
