@@ -3,15 +3,24 @@
 		<title>Подарковыбиралка</title>
 	</head>
 	<body>
-		<h1>Уже зареген? Тада вводи логин и пароль:</h1>
+		<h1>Уже зарегистрирован? Тогда вводи логин и пароль:</h1>
 		<form method="post" action="check_login_and_password.php">
-			<p>Логин:   <br /><input type="text"      name="user_login"    required pattern="^[A-Za-z]+$"/></p>
-			<p>Пароль:  <br /><input type="password"  name="user_password" required/></p>
-			<p><input type="submit" value="Да впусти уже"       ></p>
+			<p>Логин:   <br />
+                <input type="text"      name="user_login"    required
+                pattern="[0-9A-Za-z]{3,15}"
+                title="Введите не менее 3 и не более 15 букв латинского алфавита и цифр"/>
+            </p>
+			<p>Пароль:  <br />
+                <input type="password"  name="user_password" required
+                pattern="[^А-Яа-яЁё]{3,15}"
+                title="Введите не менее 3 и не более 15 символов"/>
+            </p>
+			<p><input type="submit" value="Поехали"       ></p>
 		</form>
 		<h1>Еще нет? Тогда регистрация ждет тебя:</h1>
-			<form method="post" action="register_form.php">
-				<p><input type="submit" value="Давайте уже регистрацию!"/></p>
+			<form>
+				<p><input type="button" value="Регистрация"
+					onclick="location.href='register_form.html'"/></p>
 			</form>
 	</body>
 </html>

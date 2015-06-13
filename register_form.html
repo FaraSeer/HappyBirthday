@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<title>Регистрация</title>
+	</head>
+	<body>
+		<h1>Введите информацию о себе:</h1>
+		<form method="post" action="register_new_user.php">
+			<p>Логин:   <br />
+                <input type="text"     name="user_login"          required
+                    pattern="[0-9A-Za-z]{3,15}"
+                    title="Введите не менее 3 и не более 15 букв латинского алфавита и цифр"/>
+            </p>
+			<p>Пароль:  <br />
+                <input type="password" name="user_password"       required
+                    pattern="[^А-Яа-яЁё]{3,15}"
+                    title="Введите не менее 3 и не более 15 символов"/>
+            </p>
+			<p>Имя:     <br />
+                <input type="text"     name="user_first_name"     required
+                       pattern="^[А-Яа-яЁё]+$"
+                       title="Имя на русском"/>
+            </p>
+			<p>Фамилия: <br />
+                <input type="text"     name="user_last_name"      required
+                    pattern="^[А-Яа-яЁё]+$"
+                    title="Фамилия на русском"/>
+            </p>
+			<p>Отчество:<br />
+                <input type="text"     name="user_last_last_name" required
+                    pattern="^[А-Яа-яЁё]+$"
+                    title="Отчество на русском"/>
+            </p>
+			<p>E-mail:  <br />
+                <input type="email"    name="user_e_mail"         required/>
+            </p>
+			<p>Дата рождения:</p>
+			<table>
+				<tr>
+					<td>День</td><td>Месяц</td><td>Год</td>
+				</tr>
+				<tr>
+					<td>
+						<select name="user_birth_day" required>
+						<script>
+							for(var i = 1; i <= 31; i++) document.write("<option>" + i + "</option>");
+						</script>
+						</select>
+					</td>
+					<td>
+						<select name="user_birth_month" required>
+						<script>
+							var month = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+							for(var i = 0; i < month.length; i++) document.write("<option>" + month[i] + "</option>");
+                        </script>
+						</select>
+					</td>
+					<td>
+						<select name="user_birth_year" required>
+						<script>
+							for(var i = 2015; i >= 1920; i--) document.write("<option>" + i + "</option>");
+						</script>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<p><input type="submit" value="Подтвердить"></p>
+			<p><input type="button" value="Вернуться к форме регистрации"
+			          onclick="history.back()"/></p>
+		</form>
+	</body>
+</html>

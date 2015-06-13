@@ -13,7 +13,6 @@
 			$birth_day      = $_POST["user_birth_day"     ];
 			$birth_month    = $_POST["user_birth_month"   ];
 			$birth_year     = $_POST["user_birth_year"    ];
-
 			$month = array("Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь");
 			for($i = 0; $i < 12; $i++) if($month[$i] == $birth_month) $birth_month_number = $i+1;
 			$birth_date = $birth_year. "-" . $birth_month_number . "-" . $birth_day;
@@ -27,17 +26,17 @@
 //Если таких записей нет, то заносим данные нового пользователя в таблицу
 			if($user_exists == 0){
 				$user_insert = mysql_query("INSERT INTO users VALUES
-						(
-							NULL,
-							'$login',
-							'$password',
-							'$first_name',
-							'$last_name',
-							'$last_last_name',
-							'$email',
-							'$birth_date'
-						)"
-						);
+                  (
+		            NULL,
+		            '$login',
+		            '$password',
+                    '$first_name',
+                    '$last_name',
+		            '$last_last_name',
+		            '$email',
+		            '$birth_date'
+	              )"
+                );
 				if(!$user_insert){
 					echo "<h3>Почему-то регистрация не удалась!</h3>";
 					echo "<h3>Обратитесь к администратору сайта.</h3>";
@@ -45,11 +44,27 @@
 				else{
 					echo "<h3>Вы зарегистрированы!</h3>";
 					echo "<h3>На ваш e-mail направлено письмо с подтверждением регистрации.</h3>";
+                    echo
+<<<RET
+    <form>
+        <p><input type="button" value="Вернуться к странице входа"
+		onclick="location.href='hello.html'"/></p>
+    </form>
+RET
+;
 				}
 			}
 			else{
 				if(mysql_num_rows($request_login)) echo "<h3>Пользователь с таким логином уже существует!</h3>";
-				if(mysql_num_rows($request_email)) echo "<h3>Пользователь с таким email уже существует!</h3>";
+				if(mysql_num_rows($request_email)) echo "<h3>Пользователь с таким e-mail уже существует!</h3>";
+                echo
+<<<RET
+    <form>
+        <p><input type="button" value="Вернуться к форме регистрации"
+	    onclick="history.back()"/></p>
+    </form>
+RET
+;
 			}
 
 			$full_name = $first_name . ' ' . $last_last_name;
