@@ -10,14 +10,14 @@
 
 	if($user_exists > 0){
 		session_start();
-		echo session_id() . "\n";
+		//echo session_id() . "\n";
 		$current_user = mysql_fetch_array($request_login, MYSQL_ASSOC);
 		foreach($current_user as $key => $value)
 		{
 			$_SESSION[$key] = $value;
 				echo $key . " " . $_SESSION[$key] . "\n";
 		}
-		header('Location: choose_interests.php');
+		header('Location: choose_interests.html');
 		exit();
 	}
 	else{
